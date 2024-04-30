@@ -28,7 +28,7 @@ export default authMiddleware({
     const url = req.nextUrl;
     let hostname = req.headers
       .get("host")!
-      .replace(".localhost:3000", `.${process.env.NEXT_PUBLIC_ROOT_DOMAIN}`);
+      .replace(".https://qu1ckai.com/", `.${process.env.NEXT_PUBLIC_ROOT_DOMAIN}`);
     const { userId, sessionClaims, orgId } = auth;
     
     // For user visiting /onboarding, don't try and redirect
@@ -65,7 +65,7 @@ export default authMiddleware({
 
     // rewrite root application to `/home` folder
     if (
-      hostname === "localhost:3000" ||
+      hostname === "https://qu1ckai.com/" ||
       hostname === process.env.NEXT_PUBLIC_ROOT_DOMAIN
     ) {
       return NextResponse.next();
